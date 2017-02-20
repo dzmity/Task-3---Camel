@@ -14,13 +14,6 @@ public class Application {
     public static void main(String[] args) {
 
         LOG.info("*****Starting route operations.");
-        try{
-
         new ClassPathXmlApplicationContext("classpath:beans.xml");
-        Thread.sleep(4000);
-
-        } catch (InterruptedException e) {
-            LOG.error("*****Exception in main method.", e);
-        }
     }
 }

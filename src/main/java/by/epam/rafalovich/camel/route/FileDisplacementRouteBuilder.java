@@ -28,5 +28,12 @@ public class FileDisplacementRouteBuilder extends RouteBuilder {
         from("jms:queue:publisher")
                 .log("***** Displacement ${body} from publish queue to subscriber queue.")
                 .to("jms:queue:subscriber");
+
+        //necessary to enable access for sender account https://www.google.com/settings/security/lesssecureapps
+        from("jms:queue:subscriber")
+                .setHeader("subject", constant("Process completion notification"))
+                .transform().simple("All operations was successfully done. ${in.body}")
+                .log("***** Send EMAIL to dzmitry_rafalovich@epam.com from subscriber queue.")
+                .to("smtps://smtp.gmail.com?username=work.d.rafalovich@gmail.com&password=epam2016&to=dzmitry_rafalovich@epam.com");
     }
 }
