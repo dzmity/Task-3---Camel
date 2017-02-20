@@ -1,0 +1,28 @@
+# ignore .git
+# /.git/*
+
+# ignore target classes
+/target/*
+
+# ignore logs
+/log/*
+
+# ignore libraries .jar
+/lib/*
+
+# ignore sonar-project files
+/.sonar/*
+/sonar-project.properties
+
+# ignore ecllipse files
+/.settings/*
+/.project
+/.classpath
+
+/.metadata/*
+/RemoteSystemsTempFiles/*
+
+# ignore idea files
+/.idea/*
+/target/
+/*.iml
