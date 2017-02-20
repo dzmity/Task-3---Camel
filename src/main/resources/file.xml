@@ -1,0 +1,81 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:TransactionalCommunicationRequest xmlns:ns3="http://atp.ihg.com/schema/common/utility/communication/datatypes/v5"
+                                               xmlns:ns2="http://atp.ihg.com/schema/common/utility/communication/servicetypes/v5"
+                                               xmlns="http://atp.ihg.com/schema/common/ATPCommonServiceTypes/v1">
+            <header>
+                <language isoLanguageCode="en" isoCountryCode="US"/>
+                <channel name="CRM">
+                    <subChannel name="MHUI"/>
+                </channel>
+                <headerVersion minor="0" major="1"/>
+                <environment name="int"/>
+                <transactionId id="2a209dd9-2313-442f-901b-486fac1d5b9c"/>
+                <transactionSequence number="0"/>
+                <sendTimeStamp>2014-03-28T13:27:34.581Z</sendTimeStamp>
+            </header>
+            <ns2:txIdentifier>CRO_CREDIT_CARD_AUTH</ns2:txIdentifier>
+            <ns2:recipient>
+                <ns3:emailAddress>personal.chayapb@ihg.com</ns3:emailAddress>
+            </ns2:recipient>
+            <ns2:commChannel>EMAIL</ns2:commChannel>
+            <ns2:messageContext>
+                <ns3:item>
+                    <ns3:key>RESERVATIONTYPE</ns3:key>
+                    <ns3:value xsi:type="ns3:ReservationType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <ns3:guest>
+                            <ns3:firstName>firstName</ns3:firstName>
+                            <ns3:lastName>lastName</ns3:lastName>
+                            <ns3:billingAddress>
+                                <ns3:address1>123 CROSS STREET</ns3:address1>
+                                <ns3:address2>APARTMENT 20 ROOM C</ns3:address2>
+                                <ns3:city>Atlanta</ns3:city>
+                                <ns3:country>United States</ns3:country>
+                                <ns3:state>Georgia</ns3:state>
+                                <ns3:zip>30341</ns3:zip>
+                            </ns3:billingAddress>
+                        </ns3:guest>
+                        <ns3:hotel>
+                            <ns3:hotelMnemonic>ATLAT</ns3:hotelMnemonic>
+                            <ns3:hotelName>hotelName</ns3:hotelName>
+                            <ns3:phoneNumber>phoneNumber</ns3:phoneNumber>
+                            <ns3:faxNumber>faxNumber</ns3:faxNumber>
+                            <ns3:address>
+                                <ns3:address1>123 CROSS STREET</ns3:address1>
+                                <ns3:address1>APARTMENT 20 ROOM C</ns3:address1>
+                                <ns3:city>Atlanta</ns3:city>
+                                <ns3:country>United States</ns3:country>
+                                <ns3:state>Georgia</ns3:state>
+                                <ns3:zip>30341</ns3:zip>
+                            </ns3:address>
+                            <ns3:brand>
+                                <ns3:code>CP</ns3:code>
+                                <ns3:id>HICP</ns3:id>
+                                <ns3:name>Crowne Plaza</ns3:name>
+                            </ns3:brand>
+                        </ns3:hotel>
+                        <ns3:stay>
+                            <ns3:checkInDate>2013-04-29-04:00</ns3:checkInDate>
+                            <ns3:numberOfNights>4</ns3:numberOfNights>
+                        </ns3:stay>
+                        <ns3:confirmationNumber>63333333</ns3:confirmationNumber>
+                    </ns3:value>
+                </ns3:item>
+                <ns3:item>
+                    <ns3:key>ATTRIBUTES</ns3:key>
+                    <ns3:value xsi:type="ns3:AttributesType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <ns3:attribute name="company " value=" company name"/>
+                    </ns3:value>
+                </ns3:item>
+            </ns2:messageContext>
+            <ns2:laf>
+                <ns3:locale>
+                    <ns3:language>en</ns3:language>
+                    <ns3:country>US</ns3:country>
+                </ns3:locale>
+                <ns3:textOnly>false</ns3:textOnly>
+                <ns3:outputEncoding>UTF-8</ns3:outputEncoding>
+            </ns2:laf>
+        </ns2:TransactionalCommunicationRequest>
+    </soap:Body>
+</soap:Envelope>
