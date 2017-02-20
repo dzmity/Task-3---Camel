@@ -10,13 +10,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileDisplacementRouteBuilder extends RouteBuilder {
 
+    private static final Namespaces ns3 =
+            new Namespaces("ns3", "http://atp.ihg.com/schema/common/utility/communication/datatypes/v5");
+
     @Override
     public void configure() throws Exception {
 
         from("file://src/main/resources?fileName=file.xml")
-                .log("*****Displacement file to the inprogress folder")
+                .log("*****Displacement file.xml to the inprogress folder")
                 .to("file://src/main/resources/inprogress?autoCreate=true");
 
+        from("file://src/main/resources/inprogress?fileName=file.xml")
+                .setBody(ns3.xpath("//ns3:item[ns3:key='RESERVATIONTYPE']/ns3:value/ns3:guest"))
+                .log("*****Extract: RESERVATIONTYPE.guest information from file.xml ${body}")
+                .to("jms:queue:publisher");
 
+        from("jms:queue:publisher")
+                .log("***** Displacement ${body} from publish queue to subscriber queue.")
+                .to("jms:queue:subscriber");
     }
 }

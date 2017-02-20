@@ -12,4 +12,10 @@
         <routeBuilder ref="fileDisplacementRouteBuilder"/>
     </camelContext>
 
+    <bean id="jms" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+    </bean>
+    <camel:camelContext id="camel-client">
+        <camel:template id="camelTemplate" />
+    </camel:camelContext>
 </beans>
